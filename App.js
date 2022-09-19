@@ -28,6 +28,12 @@ app.use(express.static('public'));
 app.use('/images', express.static(__dirname + '/images'));
 app.use('/audio', express.static(__dirname + '/audio'));
 
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/', (req,res)=>{
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
+
+
 // app.use('/uppercase', express.static('/uppercase'));
 // app.get('/image',async (req,res)=>{
 //     const url = `http://localhost:3030/images/rr.jpg`
